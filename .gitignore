@@ -1,0 +1,4 @@
+# .gitignore
+training/
+testing/
+data_scene_flow.zip
