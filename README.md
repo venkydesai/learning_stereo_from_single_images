@@ -20,6 +20,26 @@ global context, and semantic features
 
 ## Our proposed Network :
 
+<p align="center">
+  <img src="assets/Our_architecture.jpg" alt="Our proposed Network" width="600" />
+</p>
+
+Our proposed approach integrates transformer-based models, cross-attention mechanisms, and convolutional layers, showcasing a comprehensive architecture for stereo matching and disparity estimation.
+
+We propose a novel architecture wherein we employ a
+Vision Transformer (ViT) architecture for both left and right
+input images, facilitating the capture of intricate spatial relationships,
+global context, semantic features, and local details.
+The ViT outputs undergo separate cross-attention mechanisms
+to emphasize relevant features from both images. A subsequent
+reconstruction block refines the obtained features by eliminating
+the readout token. The refined features are then utilized
+to construct a cost volume, a common representation in stereo
+matching, reflecting the similarity of image patches. A CNN
+block processes the cost volume to learn hierarchical features,
+followed by a regression step to yield the final disparity maps.
+
+You can find the pytorch code for our proposed architecture in the [networks/transformer_psm.py](networks/transformer_psm.py) file.
 
 ## Reference paper : 
 > Watson, J., Aodha, O. M., Turmukhambetov, D., Brostow, G. J., & Firman, M. (2020). Learning Stereo from Single Images. European Conference on Computer Vision (ECCV).
